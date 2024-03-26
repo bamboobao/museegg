@@ -3,6 +3,7 @@ package com.museegg.meta.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.museegg.meta.convert.FundsConverter;
 import com.museegg.meta.domain.base.MusePage;
 import com.museegg.meta.domain.entity.Funds;
 import com.museegg.meta.domain.request.FundsQueryRequest;
@@ -28,6 +29,7 @@ public class FundsService {
         IPage<Funds> iPage = new Page<>(request.getCurrent(), request.getSize());
         iPage = fundsMapper.selectPage(iPage, Wrappers.<Funds>lambdaQuery()
                 .like(!StringUtils.isEmpty(request.getFundName()), Funds::getFundName, request.getFundName()));
-        return new MusePage(iPage);
+
+        return FundsConverter.INSTANCE.toPageResponse(new MusePage<>(iPage));
     }
 }
