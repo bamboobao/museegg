@@ -4,3 +4,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher # swagger路径匹配策略
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+
+server:
+  shutdown: graceful # 优雅退出
