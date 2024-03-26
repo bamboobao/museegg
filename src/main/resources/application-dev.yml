@@ -14,4 +14,4 @@ spring:
       test-while-idle: true
       validation-query: select 1
       time-between-eviction-runs-millis: 3000
-      validation-interval:
+      validation-interval: 1000
