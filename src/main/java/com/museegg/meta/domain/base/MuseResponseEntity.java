@@ -1,5 +1,6 @@
 package com.museegg.meta.domain.base;
 
+import com.museegg.meta.common.exception.SysErrorEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +35,10 @@ public class MuseResponseEntity<T> {
 
     public static <T> MuseResponseEntity<T> failed(String returnCode, String errorMessage) {
         return new MuseResponseEntity<>(returnCode, errorMessage, null);
+    }
+
+    public static <T> MuseResponseEntity<T> failed(SysErrorEnum sysErrorEnum, Object... errorMessage) {
+        return new MuseResponseEntity<>(sysErrorEnum.getErrorCode(), sysErrorEnum.getErrorMessage(errorMessage), null);
     }
 
 }
