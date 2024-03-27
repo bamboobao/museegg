@@ -1,6 +1,6 @@
 package com.museegg.meta.convert;
 
-import com.museegg.meta.domain.base.MusePage;
+import com.museegg.meta.domain.base.PageResponse;
 import com.museegg.meta.domain.entity.Funds;
 import com.museegg.meta.domain.response.FundsPageResponse;
 import org.mapstruct.Mapper;
@@ -16,5 +16,5 @@ public interface FundsConverter {
 
     FundsConverter INSTANCE = Mappers.getMapper(FundsConverter.class);
 
-    MusePage<FundsPageResponse> toPageResponse(MusePage<Funds> musePage);
+    PageResponse<FundsPageResponse> toPageResponse(PageResponse<Funds> pageResponse);
 }

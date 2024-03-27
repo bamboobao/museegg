@@ -1,6 +1,7 @@
 package com.museegg.meta.domain.request;
 
 import com.museegg.meta.domain.base.PageRequest;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

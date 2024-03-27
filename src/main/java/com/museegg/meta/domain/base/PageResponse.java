@@ -1,6 +1,7 @@
 package com.museegg.meta.domain.base;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,34 +16,24 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MusePage<T> {
+public class PageResponse<T> {
 
-    /**
-     * 当前页
-     */
+    @ApiModelProperty("当前页")
     private long current;
 
-    /**
-     * 每页记录数
-     */
+    @ApiModelProperty("每页记录数")
     private long size;
 
-    /**
-     * 总页数
-     */
+    @ApiModelProperty("总页数")
     private long pages;
 
-    /**
-     * 总记录数
-     */
+    @ApiModelProperty("总记录数")
     private long total;
 
-    /**
-     * 数据列表
-     */
+    @ApiModelProperty("数据列表")
     private List<T> records;
 
-    public MusePage(IPage<T> iPage) {
+    public PageResponse(IPage<T> iPage) {
         this.current = iPage.getCurrent();
         this.size = iPage.getSize();
         this.pages = iPage.getPages();
@@ -50,7 +41,7 @@ public class MusePage<T> {
         this.records = iPage.getRecords();
     }
 
-    public MusePage(List<T> records) {
+    public PageResponse(List<T> records) {
         this.current = 1;
         this.size = records.size();
         this.pages = 1;

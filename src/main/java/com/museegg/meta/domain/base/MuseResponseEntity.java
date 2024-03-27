@@ -1,5 +1,6 @@
 package com.museegg.meta.domain.base;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,18 +15,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MuseResponseEntity<T> {
 
+    @ApiModelProperty("返回码")
     private String returnCode;
 
+    @ApiModelProperty("错误信息")
     private String errorMessage;
 
+    @ApiModelProperty("响应体")
     private T body;
 
     public static <T> MuseResponseEntity<T> success() {
-        return new MuseResponseEntity<>("SUC000", "", null);
+        return new MuseResponseEntity<>("SUC000", null, null);
     }
 
     public static <T> MuseResponseEntity<T> success(T body) {
-        return new MuseResponseEntity<>("SUC000", "", body);
+        return new MuseResponseEntity<>("SUC000", null, body);
     }
 
     public static <T> MuseResponseEntity<T> failed(String returnCode, String errorMessage) {
