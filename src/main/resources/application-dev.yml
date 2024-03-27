@@ -1,13 +1,10 @@
 server:
   port: 8080
 
-#logging:
-#  level: info
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ele_db?characterEncoding=UTF-8&failOverReadOnly=false&secondsBeforeRetryMaster=0&queriesBeforeRetryMaster=0&serverTimezone=Asia/Shanghai&useUnicode=true&useSSL=false&connectTimeout=10000&socketTimeout=60000
+    url: jdbc:mysql://localhost:3306/ele_db?characterEncoding=UTF-8&failOverReadOnly=false&secondsBeforeRetryMaster=0&queriesBeforeRetryMaster=0&serverTimezone=Asia/Shanghai&useUnicode=true&useSSL=true&connectTimeout=10000&socketTimeout=60000
     username: root
     password: root
     tomcat:
